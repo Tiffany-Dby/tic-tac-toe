@@ -88,12 +88,20 @@ main {
 }
 
 .square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100px;
     height: 100px;
     border-color: grey;
     border-radius: 7px;
     border-style: solid;
     border-width: 1px;
+}
+
+.square-img {
+    width: 30px;
+    height: 30px;
 }
 
 .reset {
