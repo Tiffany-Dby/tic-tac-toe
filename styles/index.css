@@ -100,7 +100,12 @@ main {
     border-width: 1px;
 }
 
-.square-img {
+.square-img-hide {
+    display: none;
+}
+
+.square-img-show {
+    display: block;
     width: 70px;
     height: 70px;
 }
