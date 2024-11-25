@@ -14,33 +14,37 @@
   <body>
     <header>
       <nav>
-        <ul>
-          <li><a href="https://www.youtube.com/watch?v=XoDY9vFAaG8">Règles du jeu</a></li>
-          <li><a href="https://guthib.com/">Repo</a></li>
-          <li><a href="https://fr.wikipedia.org/wiki/La_Soupe_aux_choux_(film)">Origine image 1</a></li>
-          <li><a href="https://fr.wikipedia.org/wiki/Le_D%C3%AEner_de_cons">Origine image 2</a></li>
+        <ul class="navbar-items">
+          <li><a target="_blank" href="https://www.youtube.com/watch?v=XoDY9vFAaG8">Règles du jeu</a></li>
+          <li><a target="_blank" href="https://guthib.com/">Repo</a></li>
+          <li><a target="_blank" href="https://fr.wikipedia.org/wiki/La_Soupe_aux_choux_(film)">Origine image 1</a></li>
+          <li><a target="_blank" href="https://fr.wikipedia.org/wiki/Le_D%C3%AEner_de_cons">Origine image 2</a></li>
         </ul>
       </nav>
-
-      <img src="./styles/images/logo.png" alt="logo"/>
-      <h1>TIC TAC TOE</h1>
-      <img src="./styles/images/logo.png" alt="logo"/>
     </header>
 
     <main>
       <div class="container">
+        <div class="title">
+          <img src="./styles/images/logo.png" alt="logo"/>
+          <h1>TIC TAC TOE</h1>
+          <img src="./styles/images/logo.png" alt="logo"/></div>
         <div class="board">
-          <div class="square square-a"><img src="" alt="" class="square-img"></div>
-          <div class="square square-b"><img src="" alt="" class="square-img"></div>
-          <div class="square square-c"><img src="" alt="" class="square-img"></div>
-          <div class="square square-d"><img src="" alt="" class="square-img"></div>
-          <div class="square square-e"><img src="" alt="" class="square-img"></div>
-          <div class="square square-f"><img src="" alt="" class="square-img"></div>
-          <div class="square square-g"><img src="" alt="" class="square-img"></div>
-          <div class="square square-h"><img src="" alt="" class="square-img"></div>
-          <div class="square square-i"><img src="" alt="" class="square-img"></div>
+          <div class="square square-a"><img src="" alt="" class="square-img-hide"></div>
+          <div class="square square-b"><img src="" alt="" class="square-img-hide"></div>
+          <div class="square square-c"><img src="" alt="" class="square-img-hide"></div>
+          <div class="square square-d"><img src="" alt="" class="square-img-hide"></div>
+          <div class="square square-e"><img src="" alt="" class="square-img-hide"></div>
+          <div class="square square-f"><img src="" alt="" class="square-img-hide"></div>
+          <div class="square square-g"><img src="" alt="" class="square-img-hide"></div>
+          <div class="square square-h"><img src="" alt="" class="square-img-hide"></div>
+          <div class="square square-i"><img src="" alt="" class="square-img-hide"></div>
         </div>
-        <button class="reset">Reset</button>
+        <div class="reset-btns">
+          <button id="reset-game" class="reset">Reset game</button>
+          <button id="reset-scores" class="reset">Reset scores</button>
+        </div>
+        
       </div>
     </main>
 
