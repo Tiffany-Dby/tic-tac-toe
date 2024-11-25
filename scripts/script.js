@@ -1,36 +1,35 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const squares = document.querySelectorAll(".square");
-    const resetBtn = document.querySelector(".reset");
+  const squares = document.querySelectorAll(".square");
+  const resetBtn = document.querySelector(".reset");
 
-    let player = 1;
-    function crossthrough(event, square){
-        //if(!!square.textContent.length) return;
-        if(square.textContent.length > 0) return; //if not empty return
+  let player = 1;
+  function crossthrough(square) {
+    //if(!!square.textContent.length) return;
+    //if(square.textContent.length > 0) return; //if not empty return
+    const img = square.querySelector("img");
 
-        if (player % 2 === 0){
-            square.textContent = "x";
-        }else{
-            square.textContent = "o";
-        }
-        player += 1;
-    }
-    
-    
-    function reset(event){
-        player = 1;
-        squares.forEach(square => {
-            square.textContent = "";
-        })
+    if (!!img.getAttribute("src").length) return;
+    if (player % 2 === 0) {
+      img.src = "./styles/images/logo.png";
+    } else {
+      img.src = "./styles/images/logo.png";
     }
 
-    squares.forEach(square  => {
-        square.addEventListener('click', (e)=>{
-            crossthrough(e,square)
-        });
+    player += 1;
+  }
+
+  function reset() {
+    player = 1;
+    squares.forEach((square) => {
+      square.querySelector("img").src = "";
     });
+  }
 
-    resetBtn.addEventListener('click', (e)=>{
-        reset(e)
-    })
+  squares.forEach((square) => {
+    square.addEventListener("click", () => {
+      crossthrough(square);
+    });
+  });
 
+  resetBtn.addEventListener("click", reset);
 });
