@@ -1,9 +1,37 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+header img {
+  width: 100px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
 main {
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: rgb(240, 240, 240);
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 
 .container {
@@ -66,5 +94,17 @@ main {
     border-radius: 7px;
     border-style: solid;
     border-width: 1px;
+}
+
+.reset {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  padding: 10px 30px;
+  margin-bottom: 10px;
+  margin-top: 25px;
+  border-radius: 15px;
 }
 
