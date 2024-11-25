@@ -1,16 +1,24 @@
+"use strict";
 document.addEventListener("DOMContentLoaded", () => {
   const squares = document.querySelectorAll(".square");
   const resetBtn = document.querySelector(".reset");
   const squaresArray = Array.from(squares);
 
   let player = 1;
+  let scorep1 = 0;
+  let scorep2 = 0;
+  let gameover = false;
 
   function crossthrough(square) {
     //if(!!square.textContent.length) return;
     //if(square.textContent.length > 0) return; //if not empty return
     const img = square.querySelector("img");
 
+    if (gameover) return;
     if (!!img.getAttribute("src").length) return;
+
+    img.classList.add("square-img-show");
+
     if (player % 2 === 0) {
       img.src = "./styles/images/player1.png";
     } else {
@@ -22,19 +30,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function reset() {
     player = 1;
+    gameover = false;
     squares.forEach((square) => {
       square.querySelector("img").src = "";
+      square.querySelector("img").classList.add("square-img-hide");
+      square.querySelector("img").classList.remove("square-img-show");
     });
   }
 
   function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise((resolve) => setTimeout(resolve, ms));
   }
 
   squares.forEach((square) => {
     square.addEventListener("click", () => {
+      if (gameover) return;
       crossthrough(square);
-      sleep(1).then(()=> winGame());
+      sleep(1).then(() => winGame());
     });
   });
 
@@ -60,8 +72,17 @@ document.addEventListener("DOMContentLoaded", () => {
         squaresArray[a].querySelector("img").getAttribute("src") ===
           squaresArray[c].querySelector("img").getAttribute("src")
       ) {
-        alert(`Player ${player % 2 === 0 ? "1" : "2"} wins!`);
-        return;
+        if (player % 2 === 0) {
+          scorep1 += 1;
+        } else if (player % 2 === 1) {
+          scorep2 += 1;
+        }
+        gameover = true;
+        alert(
+          `Player ${
+            player % 2 === 0 ? "1" : "2"
+          } wins! Score : \nPlayer 1 : ${scorep1} \nPlayer 2 : ${scorep2} `
+        );
       }
     }
   }
