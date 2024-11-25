@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
   const squares = document.querySelectorAll(".square");
   const resetBtn = document.querySelector(".reset");
+  const squaresArray = Array.from(squares);
 
   let player = 1;
+
   function crossthrough(square) {
     //if(!!square.textContent.length) return;
     //if(square.textContent.length > 0) return; //if not empty return
@@ -10,9 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!!img.getAttribute("src").length) return;
     if (player % 2 === 0) {
-      img.src = "./styles/images/logo.png";
+      img.src = "./styles/images/player1.png";
     } else {
-      img.src = "./styles/images/logo.png";
+      img.src = "./styles/images/player2.png";
     }
 
     player += 1;
@@ -25,9 +27,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   squares.forEach((square) => {
     square.addEventListener("click", () => {
       crossthrough(square);
+      sleep(1).then(()=> winGame());
     });
   });
 
@@ -43,17 +50,20 @@ document.addEventListener("DOMContentLoaded", () => {
       [2, 4, 6], // Diagonal 2
     ];
 
-    const squaresArray = Array.from(squares);
+    for (const combination of winningCombinations) {
+      const [a, b, c] = combination;
 
-    // for (const combination of winningCombinations) {
-    //   const [a, b, c] = combination;
-    //   if (
-
-    //   ) {
-    //     alert(`Player ${} wins!`);
-    //     return;
-    //   }
-    // }
+      if (
+        squaresArray[a].querySelector("img").getAttribute("src") &&
+        squaresArray[a].querySelector("img").getAttribute("src") ===
+          squaresArray[b].querySelector("img").getAttribute("src") &&
+        squaresArray[a].querySelector("img").getAttribute("src") ===
+          squaresArray[c].querySelector("img").getAttribute("src")
+      ) {
+        alert(`Player ${player % 2 === 0 ? "1" : "2"} wins!`);
+        return;
+      }
+    }
   }
 
   resetBtn.addEventListener("click", reset);
