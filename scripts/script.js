@@ -1,3 +1,4 @@
+"use strict";
 document.addEventListener("DOMContentLoaded", () => {
   const squares = document.querySelectorAll(".square");
   const resetBtn = document.querySelector(".reset");
@@ -15,6 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (gameover) return;
     if (!!img.getAttribute("src").length) return;
+
+    img.classList.add("square-img-show");
+
     if (player % 2 === 0) {
       img.src = "./styles/images/player1.png";
     } else {
@@ -29,6 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
     gameover = false;
     squares.forEach((square) => {
       square.querySelector("img").src = "";
+      square.querySelector("img").classList.add("square-img-hide");
+      square.querySelector("img").classList.remove("square-img-show");
     });
   }
 
