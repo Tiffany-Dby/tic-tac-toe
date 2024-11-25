@@ -179,6 +179,7 @@ main {
     border-radius: 15px;
     transition-duration: 0.4;
     text-transform: uppercase;
+    border-color: blue;
 
     &:hover {
         background-color: blue;
