@@ -101,6 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
         player1ScoreElt.textContent = scorep1;
         player2ScoreElt.textContent = scorep2;
 
+        popoverElt.classList.add("confettis");
         popoverPElt.textContent = `Joueur ${
           player % 2 === 0 ? "1" : "2"
         } a gagné ! `;
@@ -113,6 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
         squaresArray[a].querySelector("img").getAttribute("src") !==
           squaresArray[c].querySelector("img").getAttribute("src")
       ) {
+        popoverElt.classList.remove("confettis");
         popoverPElt.textContent = draw();
         popoverElt.showPopover();
       }
