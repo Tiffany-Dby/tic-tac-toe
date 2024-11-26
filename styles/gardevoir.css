@@ -14,7 +14,7 @@
 }
 
 :where(main) {
-  display: blck;
+  display: block;
 }
 
 :where(h1) {
@@ -41,7 +41,7 @@
 }
 
 :where(sub, sup) {
-  font-size: 75;
+  font-size: 75%;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
@@ -99,7 +99,7 @@
   text-transform: none;
 }
 
-:where(textrea) {
+:where(textarea) {
   overflow: auto;
   vertical-align: top;
 }
