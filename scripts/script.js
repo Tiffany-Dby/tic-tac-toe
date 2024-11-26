@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const player1ScoreElt = document.getElementById("player1-score");
   const player2ScoreElt = document.getElementById("player2-score");
   const popoverElt = document.getElementById("popover");
+  const popoverPElt = document.querySelector("#popover p");
 
   let player = 1;
   let scorep1 = 0;
@@ -57,8 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function resetScores() {
     scorep1 = 0;
     scorep2 = 0;
-    player1ScoreElt.textContent = 0;
-    player2ScoreElt.textContent = 0;
+    player1ScoreElt.document.querySelector("#popover p").textContent = 0;
+    player2ScoreElt.document.querySelector("#popover p").textContent = 0;
   }
 
   function sleep(ms) {
@@ -100,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
         player1ScoreElt.textContent = scorep1;
         player2ScoreElt.textContent = scorep2;
 
-        popoverElt.textContent = `Joueur ${
+        popoverPElt.textContent = `Joueur ${
           player % 2 === 0 ? "1" : "2"
         } a gagné ! `;
         popoverElt.showPopover();
@@ -112,7 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
         squaresArray[a].querySelector("img").getAttribute("src") !==
           squaresArray[c].querySelector("img").getAttribute("src")
       ) {
-        popoverElt.textContent = draw();
+        popoverPElt.textContent = draw();
         popoverElt.showPopover();
       }
     }
