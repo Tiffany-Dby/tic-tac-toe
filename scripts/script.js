@@ -58,8 +58,8 @@ document.addEventListener("DOMContentLoaded", () => {
   function resetScores() {
     scorep1 = 0;
     scorep2 = 0;
-    player1ScoreElt.document.querySelector("#popover p").textContent = 0;
-    player2ScoreElt.document.querySelector("#popover p").textContent = 0;
+    player1ScoreElt.textContent = 0;
+    player2ScoreElt.textContent = 0;
   }
 
   function sleep(ms) {
