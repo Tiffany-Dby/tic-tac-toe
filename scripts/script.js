@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const squaresArray = Array.from(squares);
   const year = new Date().getFullYear();
   const yearElt = document.getElementById("year");
+  const player1ScoreElt = document.getElementById("player1-score");
+  const player2ScoreElt = document.getElementById("player2-score");
+  const popoverElt = document.getElementById("popover");
 
   let player = 1;
   let scorep1 = 0;
@@ -16,12 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function draw() {
     gameover = true;
-    return "Draw";
-  }
-
-  function resetScores() {
-    scorep1 = 0;
-    scorep2 = 0;
+    return "Égalité !";
   }
 
   function crossthrough(square) {
@@ -54,6 +52,13 @@ document.addEventListener("DOMContentLoaded", () => {
         .querySelector("img")
         .classList.remove("square-img-show", "winners-rotate");
     });
+  }
+
+  function resetScores() {
+    scorep1 = 0;
+    scorep2 = 0;
+    player1ScoreElt.textContent = 0;
+    player2ScoreElt.textContent = 0;
   }
 
   function sleep(ms) {
@@ -92,11 +97,13 @@ document.addEventListener("DOMContentLoaded", () => {
         squaresArray[b].querySelector("img").classList.add("winners-rotate");
         squaresArray[c].querySelector("img").classList.add("winners-rotate");
 
-        alert(
-          `Player ${
-            player % 2 === 0 ? "1" : "2"
-          } wins! Score : \nPlayer 1 : ${scorep1} \nPlayer 2 : ${scorep2} `
-        );
+        player1ScoreElt.textContent = scorep1;
+        player2ScoreElt.textContent = scorep2;
+
+        popoverElt.textContent = `Joueur ${
+          player % 2 === 0 ? "1" : "2"
+        } a gagné ! `;
+        popoverElt.showPopover();
       } else if (
         player === 10 &&
         squaresArray[a].querySelector("img").getAttribute("src") &&
@@ -105,7 +112,8 @@ document.addEventListener("DOMContentLoaded", () => {
         squaresArray[a].querySelector("img").getAttribute("src") !==
           squaresArray[c].querySelector("img").getAttribute("src")
       ) {
-        alert(draw());
+        popoverElt.textContent = draw();
+        popoverElt.showPopover();
       }
     }
   }
