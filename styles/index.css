@@ -1,6 +1,23 @@
+:root {
+    --primary-color: rgb(255, 255, 255);
+    --secondary-color: rgb(240, 240, 240);
+    --font-color: blue;
+    --second-font-color: black;
+    --box-shadow: 0px 0px 5px grey;
+
+    &:has(.tgl:checked) {
+        --primary-color: #1B1B1B;
+        --secondary-color: #373737;
+        --font-color: white;
+        --second-font-color: white;
+        --box-shadow: 0px 0px 5px #0e0e0e;
+    }
+}
+
 html,
 body {
     height: 100%;
+    color: var(--second-font-color);
 }
 
 body {
@@ -13,9 +30,8 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: rgb(255, 255, 255);
-    padding: 10px;
-    margin-bottom: 10px;
+    background-color: var(--primary-color);
+    padding: 15px;
 }
 
 .navbar-items {
@@ -37,18 +53,18 @@ header {
 
 .navbar-items li a {
     text-decoration: none;
-    color: blue;
-    border-color: blue;
+    color: var(--font-color);
+    border-color: var(--font-color);
     border-style: solid;
     border-width: 1px;
     border-radius: 15px;
     padding: 10px 20px;
-    background-color: rgb(240, 240, 240);
+    background-color: var(--secondary-color);
     text-transform: uppercase;
 
     &:hover {
-        background-color: blue;
-        color: white;
+        background-color: var(--font-color);
+        color: var(--primary-color);
     }
 }
 
@@ -118,7 +134,7 @@ header {
 }
 
 .checkbox-wrapper-6 .tgl-light+.tgl-btn {
-    background: #f0f0f0;
+    background: var(--secondary-color);
     border-radius: 2em;
     padding: 2px;
     transition: all 0.4s ease;
@@ -126,12 +142,12 @@ header {
 
 .checkbox-wrapper-6 .tgl-light+.tgl-btn:after {
     border-radius: 50%;
-    background: #fff;
+    background: var(--primary-color);
     transition: all 0.2s ease;
 }
 
 .checkbox-wrapper-6 .tgl-light:checked+.tgl-btn {
-    background: blue;
+    background: var(--font-color);
 }
 
 main {
@@ -140,7 +156,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgb(240, 240, 240);
+    background-color: var(--secondary-color);
     padding-top: 50px;
     padding-bottom: 50px;
 }
@@ -151,8 +167,8 @@ main {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 5px grey;
+    background-color: var(--primary-color);
+    box-shadow: var(--box-shadow);
     border-radius: 15px;
     padding: 10px;
     margin-bottom: 50px;
@@ -228,7 +244,7 @@ main {
     border-width: 1px;
 
     &:has(.square-img-show) {
-        background-color: #fff;
+        background-color: var(--primary-color);
     }
 }
 
@@ -254,8 +270,8 @@ main {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    color: blue;
-    background-color: rgb(255, 255, 255);
+    color: var(--font-color);
+    background-color: var(--primary-color);
     padding: 10px 30px;
     margin-bottom: 10px;
     margin-top: 25px;
@@ -264,8 +280,8 @@ main {
     text-transform: uppercase;
 
     &:hover {
-        background-color: blue;
-        color: white;
+        background-color: var(--font-color);
+        color: var(--primary-color);
     }
 }
 
@@ -276,8 +292,8 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0px 0px 5px grey;
+    background-color: var(--primary-color);
+    box-shadow: var(--box-shadow);
     border-radius: 15px;
     padding: 10px;
     margin-bottom: 50px;
@@ -302,6 +318,7 @@ main {
 }
 
 footer {
+    background-color: var(--primary-color);
     text-align: center;
     padding: 20px;
     font-weight: 500;
