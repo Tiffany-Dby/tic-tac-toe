@@ -39,6 +39,11 @@ body {
 
     &::backdrop {
         background-color: rgba(50, 50, 50, 0.5);
+    }
+}
+
+.confettis {
+    &::backdrop {
         background-image: url("./images/confettis.gif");
     }
 }
