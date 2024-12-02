@@ -313,17 +313,17 @@ a {
   grid-area: i;
 }
 
-.square-img-hide {
+.square__img {
   display: none;
-}
-
-.square-img-show {
-  display: block;
   width: 70px;
   height: 70px;
 }
 
-.winners-rotate {
+.square__img--show {
+  display: block;
+}
+
+.square__img--rotate {
   animation: winners-rotate 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955)
     infinite;
 }
